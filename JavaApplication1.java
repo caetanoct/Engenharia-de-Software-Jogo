@@ -16,9 +16,9 @@ public class JavaApplication1 {
      */
     public static void main(String[] args) {        
         INTERFACE2 i2 = new INTERFACE2();
-        NewJFrame i1 = new NewJFrame();
+        NewJFrame i1 = new NewJFrame(i2);
+        i2.frameAssociado = i1;
         i1.setVisible(true);
-        i2.setVisible(true);
     }
     
 }
