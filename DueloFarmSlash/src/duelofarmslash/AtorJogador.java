@@ -18,12 +18,12 @@ public class AtorJogador {
 	protected Partida Partida;
 	protected AtorNetGames rede;
 	protected String idUsuario;
-	protected TelaPrincipal tela;
+	protected TelaPrincipalDuel tela;
 
 	
 	public AtorJogador() {
                 this.Partida = new Partida();
-		this.tela = new TelaPrincipal(this);
+		this.tela = new TelaPrincipalDuel(this);
 		this.rede = new AtorNetGames(this);
 	}
 
@@ -76,6 +76,7 @@ public class AtorJogador {
 
 	public void iniciarNovaPartida(Integer posicao) {
 		Partida = new Partida();
+                
 		String idAdversario = rede.getNomeAdversario(posicao);
 		Partida.criarJogadores(idUsuario, idAdversario, posicao);
 		Partida.setPartidaEmAndamento(true);
@@ -88,7 +89,7 @@ public class AtorJogador {
                 this.tela.notificar("Um duelo foi encontrado! O seu oponente eh:"+ Partida.getJogador2().getNome() );
                 } 
 		tela.iniciarPartida.setEnabled(false);
-		tela.conectar.setEnabled(false);
+		tela.ServidorItem.setEnabled(false);
 		if (Partida.getJogador1().isJogadorDaVez()){
                     this.tela.notificar(Partida.getJogador1().getNome()+", eh sua vez de atacar.");
 		}else{
