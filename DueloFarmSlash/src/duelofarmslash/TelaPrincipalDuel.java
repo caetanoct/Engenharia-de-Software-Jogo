@@ -25,19 +25,41 @@ import javax.swing.JPanel;
  */
 public class TelaPrincipalDuel extends javax.swing.JFrame {
     protected AtorJogador ator;
+    // Variables declaration - do not modify
+    protected javax.swing.JButton AtacarButton;
+    protected javax.swing.JLabel Ataque;
+    protected javax.swing.JLabel Block;
+    protected javax.swing.JLabel Creditos;
+    protected javax.swing.JMenuItem DesconectarItem;
+    protected javax.swing.JButton DesistirButton;
+    protected javax.swing.JButton FarmarButton;
+    protected javax.swing.JMenuItem iniciarPartida;
+    protected javax.swing.JButton LojaButton;
+    protected javax.swing.JMenu Menu;
+    protected javax.swing.JLabel Perso1;
+    protected javax.swing.JLabel Perso2;
+    protected javax.swing.JMenuItem ServidorItem;
+    protected javax.swing.JLabel Status;
+    protected javax.swing.JLabel SuaVidaText;
+    protected javax.swing.JProgressBar VidaBarra1;
+    protected javax.swing.JProgressBar VidaBarra2;
+    protected javax.swing.JLabel VidaOponenteText;
+    protected javax.swing.JMenu jMenu3;
+    protected javax.swing.JMenuBar jMenuBar1;
+    // End of variables declaration
 
     /**
      * Creates new form TelaPrincipalDuel
      */
-    public TelaPrincipalDuel(AtorJogador ator) {
+    public TelaPrincipalDuel(final AtorJogador ator) {
         setTitle("Duelo - Farm and Slash");
         this.ator = ator;
         initComponents();
+        this.setVisible(true);
+        Perso1.setVisible(false);
+        Perso2.setVisible(false);
     }
 
-//    private TelaPrincipalDuel() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
 
     public void notificar(String msg) {
 
@@ -120,7 +142,6 @@ public class TelaPrincipalDuel extends javax.swing.JFrame {
         VidaOponenteText.setText("Oponente:");
 
         Perso1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/duelofarmslash/person1.gif"))); // NOI18N
-
         Perso2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/duelofarmslash/person2.gif"))); // NOI18N
 
         Menu.setText("Menu");
@@ -130,12 +151,9 @@ public class TelaPrincipalDuel extends javax.swing.JFrame {
         public void actionPerformed(java.awt.event.ActionEvent e) {
                 try {
 
-                    ator.IniciarPartida();
+                      ator.IniciarPartida();
 
-                        //if (ator.getPartida().informaSePartidaEmAndamento()) {
-                        //      reiniciar.setEnabled(true);
-                         iniciarPartida.setEnabled(false);
-                        //}
+                      iniciarPartida.setEnabled(false);
 
                      } catch (Exception e1) {
                         System.out.println("ex");
@@ -267,77 +285,21 @@ public class TelaPrincipalDuel extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AtacarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtacarButtonActionPerformed
+    private void AtacarButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }//GEN-LAST:event_AtacarButtonActionPerformed
+    }
 
-    private void FarmarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FarmarButtonActionPerformed
+    private void FarmarButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }//GEN-LAST:event_FarmarButtonActionPerformed
+    }
 
-    private void LojaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LojaButtonActionPerformed
+    private void LojaButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }//GEN-LAST:event_LojaButtonActionPerformed
+    }
 
-    private void ServidorItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ServidorItemActionPerformed
+    private void ServidorItemActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }//GEN-LAST:event_ServidorItemActionPerformed
+    }
 
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(TelaPrincipalDuel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(TelaPrincipalDuel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(TelaPrincipalDuel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(TelaPrincipalDuel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new TelaPrincipalDuel().setVisible(true);
-//            }
-//        });
-//    }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AtacarButton;
-    private javax.swing.JLabel Ataque;
-    private javax.swing.JLabel Block;
-    private javax.swing.JLabel Creditos;
-    private javax.swing.JMenuItem DesconectarItem;
-    private javax.swing.JButton DesistirButton;
-    private javax.swing.JButton FarmarButton;
-    protected javax.swing.JMenuItem iniciarPartida;
-    private javax.swing.JButton LojaButton;
-    private javax.swing.JMenu Menu;
-    private javax.swing.JLabel Perso1;
-    private javax.swing.JLabel Perso2;
-    protected javax.swing.JMenuItem ServidorItem;
-    private javax.swing.JLabel Status;
-    private javax.swing.JLabel SuaVidaText;
-    private javax.swing.JProgressBar VidaBarra1;
-    private javax.swing.JProgressBar VidaBarra2;
-    private javax.swing.JLabel VidaOponenteText;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenuBar jMenuBar1;
-    // End of variables declaration//GEN-END:variables
-}
+    }

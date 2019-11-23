@@ -19,12 +19,13 @@ public class AtorJogador {
 	protected AtorNetGames rede;
 	protected String idUsuario;
 	protected TelaPrincipalDuel tela;
-
+        protected TelaPrincipalDuel telaAtualizada;
 	
 	public AtorJogador() {
                 this.Partida = new Partida();
 		this.tela = new TelaPrincipalDuel(this);
 		this.rede = new AtorNetGames(this);
+                
 	}
 
    
@@ -75,24 +76,35 @@ public class AtorJogador {
 	}
 
 	public void iniciarNovaPartida(Integer posicao) {
+     
 		Partida = new Partida();
                 
 		String idAdversario = rede.getNomeAdversario(posicao);
 		Partida.criarJogadores(idUsuario, idAdversario, posicao);
 		Partida.setPartidaEmAndamento(true);
-	//	tela.limpar();
-                
-                // VERIFICAR SE A LINHA EH NECESSSARIA 
+                tela.VidaBarra1.setValue(100);
+                tela.VidaBarra2.setValue(100);
                 if (posicao == 1) {
-		this.tela.notificar("Um duelo foi encontrado! O seu oponente eh:" + idAdversario);
+                    this.tela.notificar("Um duelo foi encontrado! O seu oponente eh:" + idAdversario);
+                    tela.iniciarPartida.setEnabled(false);
+                    tela.Perso1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/duelofarmslash/person1.gif"))); // NOI18N
+                    tela.Perso2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/duelofarmslash/person2.gif"))); // NOI18N
+                    tela.Perso1.setVisible(true);
+                    tela.Perso2.setVisible(true);
                 } else {
-                this.tela.notificar("Um duelo foi encontrado! O seu oponente eh:"+ Partida.getJogador2().getNome() );
+                    this.tela.notificar("Um duelo foi encontrado! O seu oponente eh:"+ Partida.getJogador2().getNome() );
+                    tela.iniciarPartida.setEnabled(false);
+                    tela.Perso1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/duelofarmslash/personMirror2.gif"))); // NOI18N
+                    tela.Perso2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/duelofarmslash/personMirror1.gif"))); // NOI18N
+                    tela.Perso1.setVisible(true);
+                    tela.Perso2.setVisible(true);
                 } 
-		tela.iniciarPartida.setEnabled(false);
-		tela.ServidorItem.setEnabled(false);
+		
+
+		tela.ServidorItem.setEnabled(true);
 		if (Partida.getJogador1().isJogadorDaVez()){
                     this.tela.notificar(Partida.getJogador1().getNome()+", eh sua vez de atacar.");
-		}else{
+		} else{
                     this.tela.notificar("Agora eh a vez do jogador: " +idAdversario);
 		}
 		
