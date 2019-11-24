@@ -19,7 +19,7 @@ public class AtorJogador {
 	protected AtorNetGames rede;
 	protected String idUsuario;
 	protected TelaPrincipalDuel tela;
-        protected TelaPrincipalDuel telaAtualizada;
+        
 	
 	public AtorJogador() {
                 this.Partida = new Partida();
@@ -36,8 +36,20 @@ public class AtorJogador {
 	}
 	
 	
-	public void realizaJogada (int tipoMovimento, int posicao) throws Exception{;
+	public void realizaJogada () throws Exception{;
+        
+            if (Partida.getJogador1().isJogadorDaVez()) {
+                
+                Partida.realizaJogada();
+                
+                if (Partida.getJogador1().isVencedor()) {
+                    this.notificar("Você venceu o duelo!");
+                }
 
+                this.enviarJogada();
+            } else {
+                throw new Exception("Não é sua vez de atacar");
+            }
 	}
 
         	
@@ -71,8 +83,15 @@ public class AtorJogador {
         
 
 
-	public void receberJogada(Partida tab) throws NaoConectadoException, NaoJogandoException{
-
+	public void receberJogada(Partida partida) throws NaoConectadoException, NaoJogandoException{
+            this.Partida.setJogador1(partida.getJogador2());
+            this.Partida.setJogador2(partida.getJogador1());
+            this.Partida.getJogador1().setJogadorDaVez(true);
+            if (this.Partida.getJogador2().isVencedor()) {
+			this.notificar("Derrota!");
+			this.Partida.setPartidaEmAndamento(false);
+		}
+            
 	}
 
 	public void iniciarNovaPartida(Integer posicao) {
@@ -82,8 +101,7 @@ public class AtorJogador {
 		String idAdversario = rede.getNomeAdversario(posicao);
 		Partida.criarJogadores(idUsuario, idAdversario, posicao);
 		Partida.setPartidaEmAndamento(true);
-                tela.VidaBarra1.setValue(100);
-                tela.VidaBarra2.setValue(100);
+              
                 if (posicao == 1) {
                     this.tela.notificar("Um duelo foi encontrado! O seu oponente eh:" + idAdversario);
                     tela.iniciarPartida.setEnabled(false);
@@ -91,6 +109,8 @@ public class AtorJogador {
                     tela.Perso2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/duelofarmslash/person2.gif"))); // NOI18N
                     tela.Perso1.setVisible(true);
                     tela.Perso2.setVisible(true);
+                    tela.VidaBarra1.setValue(Partida.getJogador1().getVida());
+                    tela.VidaBarra2.setValue(Partida.getJogador2().getVida());
                 } else {
                     this.tela.notificar("Um duelo foi encontrado! O seu oponente eh:"+ Partida.getJogador2().getNome() );
                     tela.iniciarPartida.setEnabled(false);
@@ -98,10 +118,12 @@ public class AtorJogador {
                     tela.Perso2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/duelofarmslash/personMirror1.gif"))); // NOI18N
                     tela.Perso1.setVisible(true);
                     tela.Perso2.setVisible(true);
+                    tela.VidaBarra1.setValue(Partida.getJogador2().getVida());
+                    tela.VidaBarra2.setValue(Partida.getJogador1().getVida());
                 } 
 		
 
-		tela.ServidorItem.setEnabled(true);
+		tela.ServidorItem.setEnabled(false);
 		if (Partida.getJogador1().isJogadorDaVez()){
                     this.tela.notificar(Partida.getJogador1().getNome()+", eh sua vez de atacar.");
 		} else{

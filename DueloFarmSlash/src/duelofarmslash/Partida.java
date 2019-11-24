@@ -18,8 +18,9 @@ public class Partida implements Jogada {
 	}
 	
 	public void criarJogadores(String idJogador, String adversario, int posicao) {
-		jogador1 = new Jogador(idJogador, posicao);
-		jogador2 = new Jogador(adversario, posicao == 1 ? 2 : 1);
+                // param idJogador, posicao(vez), vida, ataque, block.
+		jogador1 = new Jogador(idJogador, posicao, 50, 5, 0);
+		jogador2 = new Jogador(adversario, posicao == 1 ? 2 : 1, 100, 5,0);
 
 	}
 
@@ -28,7 +29,7 @@ public class Partida implements Jogada {
 	}
 
 	
-	public void realizaJogada(int tipoMovimento, int posicaoClicada) throws Exception{
+	public void realizaJogada() throws Exception{
 
 		
 	}

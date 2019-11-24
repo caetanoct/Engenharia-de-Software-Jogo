@@ -12,12 +12,18 @@ import br.ufsc.inf.leobr.cliente.Jogada;
 public class Jogador implements Jogada {
 
 	protected String nome;
+        protected int vida;
+        protected int ataque;
+        protected int block;
 	protected boolean jogadorDaVez= false;
 	protected boolean vencedor;
-
-	public Jogador(String nome, int posicao){
+        
+	public Jogador(String nome, int posicao, int vida, int ataque, int block){
 		this.nome = nome;
-
+                this.vida =  vida;
+                this.ataque = ataque;
+                this.block = block;
+                
 		if (posicao == 1 ){
 			this.jogadorDaVez = true;
 		}
@@ -57,6 +63,27 @@ public class Jogador implements Jogada {
 	public void setVencedor(boolean vencedor) {
 		this.vencedor = vencedor;
 	}
+
+    /**
+     * @return the vida
+     */
+    public int getVida() {
+        return vida;
+    }
+
+    /**
+     * @return the ataque
+     */
+    public int getAtaque() {
+        return ataque;
+    }
+
+    /**
+     * @return the block
+     */
+    public int getBlock() {
+        return block;
+    }
 
 
 
