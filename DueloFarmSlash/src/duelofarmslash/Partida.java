@@ -18,9 +18,9 @@ public class Partida implements Jogada {
 	}
 	
 	public void criarJogadores(String idJogador, String adversario, int posicao) {
-                // param idJogador, posicao(vez), vida, ataque, block.
-		jogador1 = new Jogador(idJogador, posicao, 50, 5, 0);
-		jogador2 = new Jogador(adversario, posicao == 1 ? 2 : 1, 100, 5,0);
+                // param idJogador, posicao(vez), vida, ataque(5), block,creditos.
+		jogador1 = new Jogador(idJogador, posicao, 50, 5, 0,0);
+		jogador2 = new Jogador(adversario, posicao == 1 ? 2 : 1, 100, 5,0,0);
 
 	}
 
@@ -30,8 +30,8 @@ public class Partida implements Jogada {
 
 	
 	public void realizaJogada() throws Exception{
-
-		
+         jogador1.setJogadorDaVez(false);
+         
 	}
 
 
@@ -59,6 +59,7 @@ public class Partida implements Jogada {
 	public void setPartidaEmAndamento(boolean partidaEmAndamento) {
 		this.partidaEmAndamento = partidaEmAndamento;
 	}
-	
+
+
 
 }

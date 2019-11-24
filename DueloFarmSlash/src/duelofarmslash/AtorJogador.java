@@ -36,17 +36,19 @@ public class AtorJogador {
 	}
 	
 	
-	public void realizaJogada () throws Exception{;
+	public void realizaJogada () throws Exception{
         
             if (Partida.getJogador1().isJogadorDaVez()) {
                 
                 Partida.realizaJogada();
-                
+                tela.VidaBarra2.setValue(tela.VidaBarra2.getValue() - Partida.getJogador1().getAtaque());
+
                 if (Partida.getJogador1().isVencedor()) {
                     this.notificar("Você venceu o duelo!");
                 }
 
                 this.enviarJogada();
+                
             } else {
                 throw new Exception("Não é sua vez de atacar");
             }
@@ -91,7 +93,7 @@ public class AtorJogador {
 			this.notificar("Derrota!");
 			this.Partida.setPartidaEmAndamento(false);
 		}
-            
+            this.tela.notificar("É sua vez, "+this.Partida.getJogador1().getNome());
 	}
 
 	public void iniciarNovaPartida(Integer posicao) {
@@ -103,23 +105,9 @@ public class AtorJogador {
 		Partida.setPartidaEmAndamento(true);
               
                 if (posicao == 1) {
-                    this.tela.notificar("Um duelo foi encontrado! O seu oponente eh:" + idAdversario);
-                    tela.iniciarPartida.setEnabled(false);
-                    tela.Perso1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/duelofarmslash/person1.gif"))); // NOI18N
-                    tela.Perso2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/duelofarmslash/person2.gif"))); // NOI18N
-                    tela.Perso1.setVisible(true);
-                    tela.Perso2.setVisible(true);
-                    tela.VidaBarra1.setValue(Partida.getJogador1().getVida());
-                    tela.VidaBarra2.setValue(Partida.getJogador2().getVida());
+                    initJogador1(idAdversario);
                 } else {
-                    this.tela.notificar("Um duelo foi encontrado! O seu oponente eh:"+ Partida.getJogador2().getNome() );
-                    tela.iniciarPartida.setEnabled(false);
-                    tela.Perso1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/duelofarmslash/personMirror2.gif"))); // NOI18N
-                    tela.Perso2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/duelofarmslash/personMirror1.gif"))); // NOI18N
-                    tela.Perso1.setVisible(true);
-                    tela.Perso2.setVisible(true);
-                    tela.VidaBarra1.setValue(Partida.getJogador2().getVida());
-                    tela.VidaBarra2.setValue(Partida.getJogador1().getVida());
+                    initJogador2();
                 } 
 		
 
@@ -131,7 +119,28 @@ public class AtorJogador {
 		}
 		
 	}
-	
-
+        
+    public void initJogador1(String idAdversario) {
+        this.tela.notificar("Um duelo foi encontrado! O seu oponente eh:" + idAdversario);
+        tela.iniciarPartida.setEnabled(false);
+        tela.Perso1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/duelofarmslash/person1.gif"))); // NOI18N
+        tela.Perso2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/duelofarmslash/person2.gif"))); // NOI18N
+        tela.Perso1.setVisible(true);
+        tela.Perso2.setVisible(true);
+        tela.VidaBarra1.setValue(Partida.getJogador1().getVida());
+        tela.VidaBarra2.setValue(Partida.getJogador2().getVida());
+    }
+    
+    public void initJogador2() {
+        this.tela.notificar("Um duelo foi encontrado! O seu oponente eh:"+ Partida.getJogador2().getNome() );
+        tela.iniciarPartida.setEnabled(false);
+        tela.Perso1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/duelofarmslash/personMirror2.gif"))); // NOI18N
+        tela.Perso2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/duelofarmslash/personMirror1.gif"))); // NOI18N
+        tela.Perso1.setVisible(true);
+        tela.Perso2.setVisible(true);
+        tela.VidaBarra1.setValue(Partida.getJogador2().getVida());
+        tela.VidaBarra2.setValue(Partida.getJogador1().getVida());
+    }
+    
 }
 

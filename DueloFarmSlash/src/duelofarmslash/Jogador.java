@@ -15,15 +15,16 @@ public class Jogador implements Jogada {
         protected int vida;
         protected int ataque;
         protected int block;
+        protected int creditos;
 	protected boolean jogadorDaVez= false;
 	protected boolean vencedor;
         
-	public Jogador(String nome, int posicao, int vida, int ataque, int block){
+	public Jogador(String nome, int posicao, int vida, int ataque, int block, int creditos){
 		this.nome = nome;
                 this.vida =  vida;
                 this.ataque = ataque;
                 this.block = block;
-                
+                this.creditos = creditos;
 		if (posicao == 1 ){
 			this.jogadorDaVez = true;
 		}
@@ -83,6 +84,20 @@ public class Jogador implements Jogada {
      */
     public int getBlock() {
         return block;
+    }
+
+    /**
+     * @return the creditos
+     */
+    public int getCreditos() {
+        return creditos;
+    }
+
+    /**
+     * @param creditos the creditos to set
+     */
+    public void setCreditos(int creditos) {
+        this.creditos = creditos;
     }
 
 

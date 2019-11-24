@@ -10,6 +10,8 @@ import javax.swing.JOptionPane;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -286,7 +288,13 @@ public class TelaPrincipalDuel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AtacarButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+      try {
+        ator.realizaJogada();
+        notificar("Você realizou o ataque");
+      } catch (Exception ex) {
+              notificar(ex.getMessage());
+              ex.printStackTrace();
+      }
     }
 
     private void FarmarButtonActionPerformed(java.awt.event.ActionEvent evt) {

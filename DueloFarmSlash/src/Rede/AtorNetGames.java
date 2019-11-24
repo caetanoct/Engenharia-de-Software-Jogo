@@ -66,9 +66,9 @@ public class AtorNetGames implements OuvidorProxy {
 	}
 
 	public void receberJogada(Jogada jogada) {
-		Partida tab = (Partida) jogada;
+		Partida partida = (Partida) jogada;
 		try {
-                    this.atorJogador.receberJogada(tab);
+                    this.atorJogador.receberJogada(partida);
 		} catch (NaoConectadoException e) {
 			e.printStackTrace();
 		} catch (NaoJogandoException e) {
