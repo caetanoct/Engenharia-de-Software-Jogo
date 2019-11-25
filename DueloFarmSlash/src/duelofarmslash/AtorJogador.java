@@ -42,7 +42,7 @@ public class AtorJogador {
                 
                 Partida.realizaJogada();
                 tela.VidaBarra2.setValue(tela.VidaBarra2.getValue() - Partida.getJogador1().getAtaque());
-
+             
                 if (Partida.getJogador1().isVencedor()) {
                     this.notificar("Você venceu o duelo!");
                 }
@@ -86,6 +86,7 @@ public class AtorJogador {
 
 
 	public void receberJogada(Partida partida) throws NaoConectadoException, NaoJogandoException{
+            tela.VidaBarra1.setValue(tela.VidaBarra1.getValue() - Partida.getJogador2().getAtaque());
             this.Partida.setJogador1(partida.getJogador2());
             this.Partida.setJogador2(partida.getJogador1());
             this.Partida.getJogador1().setJogadorDaVez(true);
@@ -141,6 +142,8 @@ public class AtorJogador {
         tela.VidaBarra1.setValue(Partida.getJogador2().getVida());
         tela.VidaBarra2.setValue(Partida.getJogador1().getVida());
     }
+    
+
     
 }
 

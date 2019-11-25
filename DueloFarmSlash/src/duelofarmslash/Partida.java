@@ -11,7 +11,7 @@ public class Partida implements Jogada {
 	protected Jogador jogador2;
 	protected boolean partidaEmAndamento;
 	protected AtorJogador jogador;
-
+        
 
 	public Partida() {
 			
@@ -29,7 +29,7 @@ public class Partida implements Jogada {
 	}
 
 	
-	public void realizaJogada() throws Exception{
+	public void realizaJogada() throws Exception {
          jogador1.setJogadorDaVez(false);
          
 	}
