@@ -5,17 +5,74 @@
  */
 package duelofarmslash;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import javax.swing.Timer;
+
 /**
  *
  * @author kire
  */
 public class InterfaceFarm extends javax.swing.JFrame {
-
+    protected Jogador jogador;
+    protected int secondsPassed = 0;
     /**
      * Creates new form TelaFarmDuel
      */
-    public InterfaceFarm() {
+    public InterfaceFarm(Jogador jogador) {
+        this.jogador = jogador;
         initComponents();
+        MonsterHpBar.setMaximum(200);
+        MonsterHpBar.setValue(200);
+        
+        setVisible(true);
+        attackSpaceBar();
+        jogadorFarm();
+    }
+    
+    public void attackSpaceBar() {
+        
+        addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyPressed(java.awt.event.KeyEvent evt) {
+        if (evt.getKeyCode() == KeyEvent.VK_SPACE){
+            MonsterHpBar.setValue(MonsterHpBar.getValue() - 5);
+            }
+        }
+        });
+    }
+    
+    
+    public void jogadorFarm () {
+
+    System.out.println("outside");
+    
+    Timer t = new Timer(1000, new ActionListener() {
+    protected long time = 10 * 1000; //10 seconds, for example
+    
+    public void actionPerformed(ActionEvent e) {
+        System.out.println("inside");
+        if (time >= 0) {
+            long s = ((time / 1000) % 60);
+   
+            ContadorTempoText.setText("Tempo restante: " + s + " segundos");
+            time -= 1000;
+            
+            if (s == 0) {
+                
+                dispose();
+            }
+            
+            if (MonsterHpBar.getValue() <= 0) {
+                jogador.setCreditos(5);
+                dispose();
+            }
+        }
+ 
+    }
+    });
+    t.start();
+    
     }
 
     /**
@@ -91,47 +148,12 @@ public class InterfaceFarm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InterfaceFarm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InterfaceFarm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InterfaceFarm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InterfaceFarm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new InterfaceFarm().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel ContadorTempoText;
-    private javax.swing.JLabel Monster;
-    private javax.swing.JProgressBar MonsterHpBar;
-    private javax.swing.JLabel MonsterName;
-    private javax.swing.JLabel PressSpaceText;
+    protected javax.swing.JLabel ContadorTempoText;
+    protected javax.swing.JLabel Monster;
+    protected javax.swing.JProgressBar MonsterHpBar;
+    protected javax.swing.JLabel MonsterName;
+    protected javax.swing.JLabel PressSpaceText;
     // End of variables declaration//GEN-END:variables
 }

@@ -23,13 +23,106 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="CreditosLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="ArmaduraLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="EscudoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="Compra3_Button" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="Compra2_Button" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="LojaLabel" min="-2" max="-2" attributes="0"/>
+                              <Component id="EspadaLabel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                          <Component id="Compra1_Button" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace pref="42" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="300" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="LojaLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="EspadaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Compra1_Button" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="ArmaduraLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Compra2_Button" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="EscudoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Compra3_Button" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="40" max="32767" attributes="0"/>
+              <Component id="CreditosLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="LojaLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Loja"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="CreditosLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Creditos"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="EspadaLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Espada: + 5  Ataque  / Pre&#xe7;o: 5"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="ArmaduraLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Armadura: + 2 Block / Pre&#xe7;o: 6"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="EscudoLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Escudo: + 5 Block Chance / Pre&#xe7;o: 10"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="Compra1_Button">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Comprar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Compra1_ButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="Compra2_Button">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Comprar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="Compra3_Button">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Comprar"/>
+      </Properties>
+    </Component>
+  </SubComponents>
 </Form>

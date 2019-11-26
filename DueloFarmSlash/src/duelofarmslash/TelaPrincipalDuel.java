@@ -285,7 +285,7 @@ public class TelaPrincipalDuel extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
 
     private void AtacarButtonActionPerformed(java.awt.event.ActionEvent evt) {
       try {
@@ -298,11 +298,23 @@ public class TelaPrincipalDuel extends javax.swing.JFrame {
     }
 
     private void FarmarButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+              try {
+        ator.iniciarFarm();
+        
+      } catch (Exception ex) {
+              notificar(ex.getMessage());
+              ex.printStackTrace();
+      }
     }
 
     private void LojaButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+      try {
+        ator.iniciarLoja();
+        
+      } catch (Exception ex) {
+              notificar(ex.getMessage());
+              ex.printStackTrace();
+      }
     }
 
     private void ServidorItemActionPerformed(java.awt.event.ActionEvent evt) {

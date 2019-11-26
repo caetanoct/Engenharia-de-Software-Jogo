@@ -14,8 +14,10 @@ public class InterfaceLoja extends javax.swing.JFrame {
     /**
      * Creates new form TelaLoja
      */
-    public InterfaceLoja() {
+    public InterfaceLoja(Jogador jogador) {
         initComponents();
+        setVisible(true);
+        setDefaultCloseOperation(HIDE_ON_CLOSE);
     }
 
     /**
@@ -27,58 +29,102 @@ public class InterfaceLoja extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        LojaLabel = new javax.swing.JLabel();
+        CreditosLabel = new javax.swing.JLabel();
+        EspadaLabel = new javax.swing.JLabel();
+        ArmaduraLabel = new javax.swing.JLabel();
+        EscudoLabel = new javax.swing.JLabel();
+        Compra1_Button = new javax.swing.JButton();
+        Compra2_Button = new javax.swing.JButton();
+        Compra3_Button = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        LojaLabel.setText("Loja");
+
+        CreditosLabel.setText("Creditos");
+
+        EspadaLabel.setText("Espada: + 5  Ataque  / Preço: 5");
+
+        ArmaduraLabel.setText("Armadura: + 2 Block / Preço: 6");
+
+        EscudoLabel.setText("Escudo: + 5 Block Chance / Preço: 10");
+
+        Compra1_Button.setText("Comprar");
+        Compra1_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Compra1_ButtonActionPerformed(evt);
+            }
+        });
+
+        Compra2_Button.setText("Comprar");
+
+        Compra3_Button.setText("Comprar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(CreditosLabel)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(ArmaduraLabel)
+                                .addComponent(EscudoLabel))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(Compra3_Button, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(Compra2_Button, javax.swing.GroupLayout.Alignment.TRAILING)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(LojaLabel)
+                                .addComponent(EspadaLabel))
+                            .addGap(72, 72, 72)
+                            .addComponent(Compra1_Button))))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(LojaLabel)
+                .addGap(68, 68, 68)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EspadaLabel)
+                    .addComponent(Compra1_Button))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ArmaduraLabel)
+                    .addComponent(Compra2_Button))
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EscudoLabel)
+                    .addComponent(Compra3_Button))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(CreditosLabel)
+                .addGap(23, 23, 23))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InterfaceLoja.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InterfaceLoja.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InterfaceLoja.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InterfaceLoja.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+    private void Compra1_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Compra1_ButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Compra1_ButtonActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new InterfaceLoja().setVisible(true);
-            }
-        });
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ArmaduraLabel;
+    private javax.swing.JButton Compra1_Button;
+    private javax.swing.JButton Compra2_Button;
+    private javax.swing.JButton Compra3_Button;
+    private javax.swing.JLabel CreditosLabel;
+    private javax.swing.JLabel EscudoLabel;
+    private javax.swing.JLabel EspadaLabel;
+    private javax.swing.JLabel LojaLabel;
     // End of variables declaration//GEN-END:variables
 }

@@ -19,13 +19,14 @@ public class AtorJogador {
 	protected AtorNetGames rede;
 	protected String idUsuario;
 	protected TelaPrincipalDuel tela;
+        protected InterfaceFarm telaFarm;
+	protected InterfaceLoja telaLoja;
         
-	
 	public AtorJogador() {
             this.Partida = new Partida();
             this.tela = new TelaPrincipalDuel(this);
             this.rede = new AtorNetGames(this);
-
+            
 	}
 
 	public void conectar(String idUsuario, String servidor) throws Exception {
@@ -163,7 +164,25 @@ public class AtorJogador {
         tela.Creditos.setText("Creditos: "+Partida.getJogador2().getCreditos());
     }
     
-
+    // Falta corrigir bugs
+    public void iniciarFarm() {
+        this.telaFarm = new InterfaceFarm(Partida.getJogador1());
+        if(telaFarm == null) {
+            System.out.println("Teste");
+        }
+    }
+    // Falta terminar de implementar
+    public void iniciarLoja() {
+        this.telaLoja = new InterfaceLoja(Partida.getJogador1());
+        if(telaLoja == null) {
+            System.out.println("Teste");
+        }
+    }
+    
+    // Falta terminar de implementar
+    public void atualizaStatus() {
+        
+    }
     
 }
 
